@@ -30,7 +30,7 @@ export function Calculator() {
     { label: 'v', x: 0, y: 1.3, w: 0.6, h: 0.4, r: 0.1, c: c_dpad, tc: '#000' },
     { label: '<', x: -0.4, y: 1.7, w: 0.4, h: 0.6, r: 0.1, c: c_dpad, tc: '#000' },
     { label: '>', x: 0.4, y: 1.7, w: 0.4, h: 0.6, r: 0.1, c: c_dpad, tc: '#000' },
-    
+
     // Middle Top Scientific
     { label: 'CALC', x: -1.8, y: 1.3, w: 0.6, h: 0.3, r: 0.1, c: c_top },
     { label: 'int', x: -1.0, y: 1.3, w: 0.6, h: 0.3, r: 0.1, c: c_top },
@@ -102,7 +102,7 @@ export function Calculator() {
       <Display expression={expression} result={result} position={[0, 3.2, 0.201]} />
 
       {/* Buttons */}
-      <group position={[0, 0.2, 0.201]}>
+      <group position={[0, -0.2, 0.201]}>
         {btnLayout.map((btn, idx) => (
           <Button
             key={idx}

@@ -51,7 +51,10 @@ export function useCalculator() {
       'x^-1': '^-1',
       'x10^x': '*10^',
       'Ans': 'Ans',
-      '^': '^'
+      '^': '^',
+      '(-)': '-',
+      'a/b': '/',
+      'int': 'floor('
     };
 
     if (functionMap[val]) {
@@ -60,7 +63,7 @@ export function useCalculator() {
     }
 
     // Placeholders for advanced Casio functions
-    const noOps = ['SHIFT', 'ALPHA', 'MODE', 'ON', 'CALC', 'int', 'log[]', 'a/b', '(-)', 'o,,,', 'hyp', 'RCL', 'ENG', 'S<=>D', 'M+', '^', 'v', '<', '>'];
+    const noOps = ['SHIFT', 'ALPHA', 'MODE', 'ON', 'CALC', 'log[]', 'o,,,', 'hyp', 'RCL', 'ENG', 'S<=>D', 'M+', 'v', '<', '>'];
     if (noOps.includes(val)) {
       // Do nothing or show a small hint (we'll just ignore for now to keep the screen clean)
       return;
