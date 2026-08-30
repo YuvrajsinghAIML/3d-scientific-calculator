@@ -4,7 +4,7 @@ import { Button } from './Button';
 import { useCalculator } from '../hooks/useCalculator';
 
 export function Calculator() {
-  const { expression, result, handlePress } = useCalculator();
+  const { expression, result, isPoweredOn, shiftMode, alphaMode, handlePress } = useCalculator();
 
   const c_top = '#444';      // dark gray for small top buttons
   const c_sci = '#111';      // black for scientific
@@ -62,7 +62,7 @@ export function Calculator() {
     // Numpad Block
     { label: '7', x: cols5[0], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_num, tc: '#111' },
     { label: '8', x: cols5[1], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_num, tc: '#111' },
-    { label: '9', x: cols5[2], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_num, tc: '#111' },
+    { label: '9', x: cols5[2], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_num, tc: '#111', tl: 'CLR', tlc: '#ffcc00' },
     { label: 'DEL', x: cols5[3], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_del },
     { label: 'AC', x: cols5[4], y: -1.6, w: 0.7, h: 0.5, r: 0.1, c: c_del },
 
@@ -92,14 +92,9 @@ export function Calculator() {
         <meshStandardMaterial color="#282a2e" roughness={0.4} metalness={0.4} />
       </RoundedBox>
 
-      {/* Solar Panel */}
-      <mesh position={[1.4, 3.8, 0.201]}>
-        <planeGeometry args={[1.5, 0.5]} />
-        <meshStandardMaterial color="#1a110a" roughness={0.1} metalness={0.9} />
-      </mesh>
 
       {/* Display Screen */}
-      <Display expression={expression} result={result} position={[0, 3.2, 0.201]} />
+      <Display isPoweredOn={isPoweredOn} shiftMode={shiftMode} alphaMode={alphaMode} expression={expression} result={result} position={[0, 3.15, 0.201]} />
 
       {/* Buttons */}
       <group position={[0, -0.2, 0.201]}>
@@ -113,6 +108,8 @@ export function Calculator() {
             radius={btn.r}
             color={btn.c}
             textColor={btn.tc}
+            topLabel={btn.tl}
+            topLabelColor={btn.tlc}
             onClick={handlePress}
           />
         ))}

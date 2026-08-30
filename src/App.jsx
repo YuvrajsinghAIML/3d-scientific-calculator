@@ -28,7 +28,7 @@ function App() {
       </button>
 
       {/* 3D Scene */}
-      <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+      <Canvas camera={{ position: [0, 0, 13], fov: 50 }}>
         {/* Lighting varies slightly by theme */}
         <ambientLight intensity={isNight ? 0.4 : 0.7} />
         <directionalLight

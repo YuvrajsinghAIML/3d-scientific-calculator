@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { RoundedBox, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-export function Button({ position, label, onClick, width = 0.6, height = 0.4, radius = 0.08, color = "#222", textColor = "#fff" }) {
+export function Button({ position, label, onClick, width = 0.6, height = 0.4, radius = 0.08, color = "#222", textColor = "#fff", topLabel = null, topLabelColor = "#ffcc00" }) {
   const meshRef = useRef();
   const [isPressed, setIsPressed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -17,6 +17,12 @@ export function Button({ position, label, onClick, width = 0.6, height = 0.4, ra
 
   return (
     <group position={position}>
+      {topLabel && (
+        <Text position={[0, height / 2, 0.1]} fontSize={0.14} color={topLabelColor} anchorX="center" anchorY="bottom">
+          {topLabel}
+          <meshBasicMaterial toneMapped={false} color={topLabelColor} />
+        </Text>
+      )}
       <mesh
         ref={meshRef}
         position={[0, 0, 0.08]}
